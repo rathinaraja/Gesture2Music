@@ -1,0 +1,27 @@
+name: gesture2music
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # ── Python ───────────────────────────────────────────────────────────────
+  - python=3.10
+
+  # ── Scientific computing ─────────────────────────────────────────────────
+  - numpy>=1.23.0
+  - scipy>=1.10.0
+
+  # ── Visualisation ────────────────────────────────────────────────────────
+  - matplotlib>=3.7.0
+
+  # ── Machine learning utilities ────────────────────────────────────────────
+  - scikit-learn>=1.2.0
+
+  # ── pip-only packages ─────────────────────────────────────────────────────
+  # TensorFlow, OpenCV, and MediaPipe are best installed via pip even in
+  # conda environments — conda builds are often outdated or unavailable.
+  - pip
+  - pip:
+    - tensorflow>=2.12.0        # tf.keras, layers, Model, backend, to_categorical
+    - opencv-python>=4.7.0      # cv2 — video capture and frame processing
+    - mediapipe>=0.10.0         # body and hand landmark extraction

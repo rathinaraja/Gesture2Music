@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Deep learning
+# ─────────────────────────────────────────────────────────────────────────────
+tensorflow>=2.12.0          # tf.keras, layers, Model, backend, to_categorical
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Computer vision & landmark extraction
+# ─────────────────────────────────────────────────────────────────────────────
+opencv-python>=4.7.0        # cv2 — video capture, frame processing
+mediapipe>=0.10.0           # mp — body and hand landmark extraction
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Scientific computing
+# ─────────────────────────────────────────────────────────────────────────────
+numpy>=1.23.0               # array operations throughout
+scipy>=1.10.0               # wavfile read/write, signal processing
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Machine learning utilities
+# ─────────────────────────────────────────────────────────────────────────────
+scikit-learn>=1.2.0         # accuracy_score, f1_score, confusion_matrix
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Visualisation
+# ─────────────────────────────────────────────────────────────────────────────
+matplotlib>=3.7.0           # training curves, confusion matrix display
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Standard library modules — no install needed (listed for reference only)
+# os, time, math, random, platform, queue, csv, json, wave, subprocess,
+# dataclasses, typing, warnings
+# ─────────────────────────────────────────────────────────────────────────────
