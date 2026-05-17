@@ -179,7 +179,7 @@ Gesture2Music/
 
 ## Configuration
 
-All paths and hyperparameters are centralised in `config.py`:
+All paths and hyperparameters are centralised in `Gesture2Music.py`:
 
 ### Paths
 
