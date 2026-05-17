@@ -12,10 +12,8 @@
 
 ---
 
-> 📄 **Published at:** First International Workshop on Interactive Physical AI (IPA),  
-> IEEE/CVF Conference on Computer Vision and Pattern Recognition (**CVPR 2026**)  
+> 📄 **Published at:** First International Workshop on Interactive Physical AI (IPA), IEEE/CVF Conference on Computer Vision and Pattern Recognition (**CVPR 2026**)  
 > 🔗 **Paper:** `[Link coming soon]`
-
 ---
 
 ## Table of Contents
@@ -72,7 +70,7 @@ The proposed system follows a **six-stage pipeline**:
 | Stage | Component | Description |
 |---|---|---|
 | 1 | **Video Acquisition** | Frames captured from standard webcam |
-| 2 | **Landmark Extraction ** | MediaPipe extracts body and hand landmarks per frame |
+| 2 | **Landmark Extraction** | MediaPipe extracts body and hand landmarks per frame |
 | 3 | **Temporal Buffering** | FIFO rolling window maintains recent motion history |
 | 4 | **Causal TCN Encoder** | Stacked depthwise temporal convolution blocks with increasing dilation — strictly forward-looking |
 | 5 | **Multi-Task Prediction** | Separate heads predict pitch, octave, onset, sustain, amplitude, and activity state |
@@ -159,14 +157,7 @@ Real-time inference frames showing predicted hand gestures, recognised note labe
 ## Project Structure
 
 ```
-Gesture2Music/
-│
-├── artifacts/                        ← All generated outputs
-│   ├── figures/                      ← Training curves, evaluation plots
-│   ├── logs/                         ← Training logs
-│   ├── audio/                        ← Generated audio output samples
-│   └── video/                        ← Inference video recordings
-│
+Gesture2Music/ 
 ├── Data/
 │   ├── Music_Data/                   ← Gesture video clips (21 classes × 5 participants)
 │   │   ├── High-DO/
@@ -176,21 +167,11 @@ Gesture2Music/
 │   └── Audio/                        ← Reference .wav files per note class
 │       ├── High-DO.wav
 │       ├── Mid-Do.wav
-│       └── ...
-│
-├── assets/                           ← README figures
-│   ├── framework_overview.png
-│   ├── pipeline_detail.png
-│   ├── data_collection.png
-│   └── output_samples.png
-│
-├── train.py                          ← Training entry point
-├── infer.py                          ← Real-time webcam inference
-├── dataset.py                        ← Dataset and synthetic stream builder
-├── model.py                          ← Causal TCN + multi-task heads
-├── losses.py                         ← Temporal consistency + spectral proxy loss
-├── config.py                         ← All hyperparameters and paths
+│       └── ...  
+├── Music2Gesture.py                  ← Training entry point
+├── inference.ipynb                   ← Real-time webcam inference 
 ├── requirements.txt
+├── environment.yml
 └── README.md
 ```
 
@@ -243,15 +224,23 @@ All paths and hyperparameters are centralised in `config.py`:
 
 ## Quick Start
 
-### 1. Install Dependencies
+### 1. Install Dependencies 
 
+#### Using pip
 ```bash
 pip install -r requirements.txt
 ```
 
+#### Using conda
+```bash
+conda env create -f environment.yml
+conda activate src_detection
+```
+---
+
 ### 2. Prepare Data
 
-Organise gesture recordings under `Data/Music_Data/` — one subfolder per gesture-note class:
+Use sample_collection.ipynb to collect gesture samples for the corresponding musical note. Organise gesture recordings under `Data/Music_Data/` — one subfolder per gesture-note class:
 
 ```
 Data/Music_Data/
@@ -266,33 +255,37 @@ Data/Audio/
 └── ...         (21 .wav files)
 ```
 
-### 3. Configure Paths
+Audio files and gesture recordings are publicly available on Hugging Face:
 
-Edit `config.py`:
+| Resource | Link |
+|---|---|
+| 🔊 Audio Files | [Audio.zip](https://huggingface.co/datasets/Path2AI/Gesture2Music/tree/main/Audio.zip) |
+| 🤚 Gesture Data | [Gesture_Data.zip](https://huggingface.co/datasets/Path2AI/Gesture2Music/blob/main/Gesture_Data.zip) |
 
-```python
-# Windows
-ROOT_DIR = r"path\to\Data"
+> 📦 Download and extract both archives into the `Data/` directory before running training or inference.
 
-# Linux / macOS / Server
-ROOT_DIR = "path/to/server/Data"
-```
+### 3. Train
 
-### 4. Train
+Configure Paths and other variables in Gesture2Music.py.
 
 ```bash
-python train.py
+python Gesture2Music.py
 ```
 
 Outputs saved to `artifacts/figures/`, `artifacts/logs/`, `artifacts/audio/`.
 
-### 5. Real-Time Inference
+### 4. Real-Time Inference
 
 ```bash
-python infer.py
+python inference.ipynb
 ```
 
-Opens webcam feed, extracts landmarks in real time, and renders continuous music based on predicted gesture events.
+Opens webcam feed, extracts landmarks in real time, and renders continuous music based on predicted gesture events. Sample generated video files are provided here.
+
+| Method | Demo |
+|---|---|
+| 🎵 Discrete mapping music generation | [GRU_Baseline_Demo.mp4](https://huggingface.co/datasets/Path2AI/Gesture2Music/blob/main/GRU_Baseline_Demo.mp4) |
+| 🎶 Continuous mapping music generation | [Gesture2Music_TCN_Demo.webm](https://huggingface.co/datasets/Path2AI/Gesture2Music/blob/main/Gesture2Music_TCN_Demo.webm) |
 
 ---
 
@@ -302,11 +295,8 @@ If you use Gesture2Music in your research, please cite:
 
 ```bibtex
 @inproceedings{gesture2music2026,
-  title     = {Gesture2Music: Low-Latency Streaming Framework for
-               Continuous Gesture-Driven Music Generation},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision
-               and Pattern Recognition Workshops (CVPRW) —
-               First International Workshop on Interactive Physical AI (IPA)},
+  title     = {Gesture2Music: Low-Latency Streaming Framework for Continuous Gesture-Driven Music Generation},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW) — First International Workshop on Interactive Physical AI (IPA)},
   year      = {2026},
   url       = {}
 }
