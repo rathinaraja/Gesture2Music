@@ -49,7 +49,7 @@ Gesture-driven music generation is an emerging human-computer interaction paradi
 - ⚡ **30 ms inference latency** on a standard GPU
 
 <p align="center">
-  <img src="images/image_1.jpg" width="800" alt="Gesture2Music Framework Overview"/>
+  <img src="images/image_1.jpg" width="500" alt="Gesture2Music Framework Overview"/>
   <br/>
   <em>Figure 1: Overview of the Gesture2Music streaming pipeline.</em>
 </p>
@@ -72,7 +72,7 @@ The proposed system follows a **six-stage pipeline**:
 | Stage | Component | Description |
 |---|---|---|
 | 1 | **Video Acquisition** | Frames captured from standard webcam |
-| 2 | **Landmark Extraction** | MediaPipe extracts body and hand landmarks per frame |
+| 2 | **Landmark Extraction ** | MediaPipe extracts body and hand landmarks per frame |
 | 3 | **Temporal Buffering** | FIFO rolling window maintains recent motion history |
 | 4 | **Causal TCN Encoder** | Stacked depthwise temporal convolution blocks with increasing dilation — strictly forward-looking |
 | 5 | **Multi-Task Prediction** | Separate heads predict pitch, octave, onset, sustain, amplitude, and activity state |
@@ -86,7 +86,7 @@ The proposed system follows a **six-stage pipeline**:
 - **Spectral proxy loss** — encourages audio-consistent event predictions
 
 <p align="center">
-  <img src="assets/pipeline_detail.png" width="800" alt="Detailed Pipeline Diagram"/>
+  <img src="images/image_1.jpg" width="600" alt="Detailed Pipeline Diagram"/>
   <br/>
   <em>Figure 2: Detailed six-stage pipeline of the Gesture2Music framework.</em>
 </p>
