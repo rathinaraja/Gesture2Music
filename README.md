@@ -86,7 +86,7 @@ The proposed system follows a **six-stage pipeline**:
 - **Spectral proxy loss** — encourages audio-consistent event predictions
 
 <p align="center">
-  <img src="images/image_1.jpg" width="600" alt="Detailed Pipeline Diagram"/>
+  <img src="images/image_2.jpg" width="600" alt="Detailed Pipeline Diagram"/>
   <br/>
   <em>Figure 2: Detailed six-stage pipeline of the Gesture2Music framework.</em>
 </p>
