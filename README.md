@@ -234,7 +234,7 @@ pip install -r requirements.txt
 #### Using conda
 ```bash
 conda env create -f environment.yml
-conda activate src_detection
+conda activate gesture2music
 ```
 ---
 
