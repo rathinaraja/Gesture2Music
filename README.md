@@ -10,7 +10,7 @@
 [![Latency](https://img.shields.io/badge/Inference%20Latency-30ms-brightgreen?style=flat-square)]()
 [![Classes](https://img.shields.io/badge/Gesture--Note%20Classes-21-purple?style=flat-square)]()
 
----
+---   
 
 > 📄 **Published at:** First International Workshop on Interactive Physical AI (IPA), IEEE/CVF Conference on Computer Vision and Pattern Recognition (**CVPR 2026**)  
 > 🔗 **Paper:** `[Link coming soon]`
